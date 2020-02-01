@@ -32,10 +32,10 @@ push:
 
 - internal/docker-push:
             entrypoint: java -jar /app.jar
-            cmd: 0.0.0.0 8080
+            #cmd: 0.0.0.0 8080
             working-dir: $WERCKER_ROOT
             tag: $WERCKER_GIT_COMMIT
-            ports: 8080
+            ports: "8080"
             username: $DOCKER_USERNAME
             password: $DOCKER_PASSWORD
             repository: $DOCKER_REPO
