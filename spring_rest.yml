@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring_rest-deployment
+spec:
+  selector:
+    matchLabels:
+      app: spring_rest
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring_rest
+    spec:
+      containers:
+      - name: spring_rest
+    # enter the path to your image, be sure to include the correct region prefix
+        image: iad.ocir.io/ideajodsrjdx/demo/spring_rest:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+    # enter the name of the secret you created
+      - name: ocirsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring_rest-service
+spec:
+  ports:
+  - name: admin
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: spring_rest
+  type: LoadBalancer
