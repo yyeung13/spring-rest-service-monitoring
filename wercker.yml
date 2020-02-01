@@ -27,7 +27,7 @@ push:
   steps:
   
   - internal/docker-push:
-            entrypoint: bin/get_ip
+            entrypoint: java -jar /build/libs/rest-service-0.0.1-SNAPSHOT.jar
             cmd: 0.0.0.0 8080
             working-dir: $WERCKER_ROOT
             tag: $WERCKER_GIT_COMMIT
