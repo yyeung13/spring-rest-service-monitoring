@@ -36,6 +36,7 @@ push:
             password: $DOCKER_PASSWORD
             repository: $DOCKER_REPO
             registry: https://iad.ocir.io
+            tag: latest
 deploy:
     box: python:2.7
     steps:
