@@ -9,7 +9,7 @@ dev:
   steps:
     # A step that executes `gradle bootRun` command
     - script:
-      name: run gradle
+      name: gradle bootRun
       code: |
         ./gradlew bootRun
 
@@ -19,6 +19,6 @@ build:
   steps:
     # A step that executes `gradle build` command
     - script:
-        name: run gradle
+        name: gradle build
         code: |
           ./gradlew build
