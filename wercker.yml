@@ -1,0 +1,24 @@
+# docker box definition
+box:
+  id: openjdk:8-jdk-alpine
+  ports:
+    - "8080"
+
+# defining the dev pipeline
+dev:
+  steps:
+    # A step that executes `gradle bootRun` command
+    - script:
+      name: gradle bootRun
+      code: |
+        ./gradlew bootRun
+
+# Build definition
+build:
+  # The steps that will be executed on build
+  steps:
+    # A step that executes `gradle build` command
+    - script:
+        name: gradle build
+        code: |
+          ./gradlew build
