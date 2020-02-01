@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring_rest-deployment
+  name: spring-rest-deployment
 spec:
   selector:
     matchLabels:
-      app: spring_rest
+      app: spring-rest
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring_rest
+        app: spring-rest
     spec:
       containers:
-      - name: spring_rest
+      - name: spring-rest
     # enter the path to your image, be sure to include the correct region prefix
         image: iad.ocir.io/ideajodsrjdx/demo/spring_rest:latest
         ports:
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring_rest-service
+  name: spring-rest-service
 spec:
   ports:
   - name: admin
@@ -33,5 +33,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: spring_rest
+    app: spring-rest
   type: LoadBalancer
