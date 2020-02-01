@@ -28,8 +28,8 @@ push:
   - script:
         name: prepare exec
         code: |
-          ls
-          cp target/*.jar app.jar
+          ls build/libs
+          cp build/libs/*.jar app.jar
   - internal/docker-push:
             entrypoint: java -jar /app.jar
             cmd: 0.0.0.0 8080
