@@ -30,9 +30,12 @@ push:
         code: |
           ls
           cp build/libs/*.jar /app.jar
-
+  - internal/docker-build:
+    dockerfile: Dockerfile
+    image-name: spring-rest
+    
   - internal/docker-push:
-            entrypoint: java -jar /app.jar
+            image-name: spring-rest
             cmd: 0.0.0.0 8080
             working-dir: $WERCKER_ROOT
             tag: $WERCKER_GIT_COMMIT
